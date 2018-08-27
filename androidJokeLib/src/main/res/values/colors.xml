@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Colours taken from this listing of useful names to colour codes -->
+    <!-- https://stackoverflow.com/questions/3769762/web-colors-in-an-android-color-xml-resource-file -->
+    <color name="Snow">#FFFAFA</color>
+    <color name="Navy">#000080</color>
+</resources>
