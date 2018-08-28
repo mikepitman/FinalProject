@@ -20,6 +20,9 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private Context context;
     private MainActivity mMainActivity;
 
+    private EndpointsAsyncTaskListener mListener = null;
+    private Exception mError = null;
+
     public EndpointsAsyncTask(MainActivity mainActivity) {
         this.mMainActivity = mainActivity;
     }
@@ -56,7 +59,20 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-//        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        if (this.mListener != null) { this.mListener.onComplete(result, mError); }
+
         mMainActivity.callJokeTellingIntent(result);
     }
+
+    /*
+    Methods for connectedTest */
+    public static interface EndpointsAsyncTaskListener {
+        public void onComplete(String joke, Exception e);
+    }
+
+    public EndpointsAsyncTask setListener(EndpointsAsyncTaskListener listener) {
+        this.mListener = listener;
+        return this;
+    }
+
 }
