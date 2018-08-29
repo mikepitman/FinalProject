@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String LOG_TAG = MainActivity.class.getSimpleName();
     private JavaJoke mJavaJoke;
+    private String returnedJoke;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +65,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void callJokeTellingIntent(String joke) {
+        this.returnedJoke = joke;       // This is for testing
         Intent jokeTellingIntent = new Intent(this, JokeActivity.class);
         jokeTellingIntent.putExtra(getString(R.string.joke_intent_ref), joke);
         startActivity(jokeTellingIntent);
+    }
+
+    public String getReturnedJoke() {
+        return this.returnedJoke;
     }
 }
