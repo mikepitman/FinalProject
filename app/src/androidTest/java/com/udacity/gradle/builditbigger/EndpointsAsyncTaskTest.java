@@ -47,8 +47,8 @@ public class EndpointsAsyncTaskTest {
         EndpointsAsyncTask task = new EndpointsAsyncTask(mainActivity);
         task.setListener(new EndpointsAsyncTask.EndpointsAsyncTaskListener() {
             @Override
-            public void onComplete(String jsonString, Exception e) {
-                joke = jsonString;
+            public void onComplete(String returnedJoke, Exception e) {
+                joke = returnedJoke;
                 exception = e;
                 signal.countDown();
             }
